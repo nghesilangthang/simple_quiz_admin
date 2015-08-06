@@ -19,7 +19,7 @@ class CreateQuestionsTable extends Migration
             $table->text('option_2');
             $table->text('option_3');
             $table->text('option_4');
-            $table->text('answer');
+            $table->integer('answer');
             $table->integer('user_create')->unsigned();
             $table->foreign('user_create')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
