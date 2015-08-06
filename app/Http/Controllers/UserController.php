@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\UserModel;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
@@ -18,8 +18,9 @@ class UserController extends Controller
     public function index()
     {
         $title = 'Danh sách tài khoản';
+        $data = UserModel::all();//paginate(5);
 
-        return view('user.index')->with('title', $title);
+        return view('user.index')->with('title', $title)->with('data', $data);
     }
 
     /**
@@ -65,7 +66,6 @@ class UserController extends Controller
     public function edit($id)
     {
         $title = 'Sửa tài khoản';
-
         return view('user.edit')->with('title', $title);
     }
 

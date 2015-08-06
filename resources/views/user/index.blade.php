@@ -31,23 +31,25 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($data as $d)
                     <tr>
                         <td>
-                            1
+                            {{ $d->id }}
                         </td>
                         <td>
-                            Admin
+                            {{ $d->username }}
                         </td>
                         <td>
-                            Hanh Thông
+                            {{ $d->full_name }}
                         </td>
                         <td>
-                            <button type="button" class="btn btn-primary">Chỉnh sửa</button>
+                            <a type="button" class="btn btn-primary" href="{{ route('user.edit', $d->id) }}">Chỉnh sửa</a>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-danger">Xóa</button>
+                            <a type="button" class="btn btn-danger">Xóa</a>
                         </td>
                     </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
